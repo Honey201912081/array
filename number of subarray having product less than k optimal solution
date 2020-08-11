@@ -1,0 +1,44 @@
+/*
+Input : arr[] = [1, 2, 3, 4] 
+        K = 10
+Output : 7
+The subarrays are {1}, {2}, {3}, {4}
+{1, 2}, {1, 2, 3} and {2, 3}
+
+Input  : arr[] = [1, 9, 2, 8, 6, 4, 3] 
+         K = 100
+Output : 16
+
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int countsubarray(int arr[],int s,int k)
+{
+    long long mul=1;
+    int count=0;
+    for(int start=0,end=0;end<s;end++)
+    {
+        mul=mul*arr[end];
+        while(start<k && mul>=k)
+            mul=mul/arr[start++];
+        if(mul<k)
+        {
+            int len=(end-start)+1;
+            count=count+len;
+        }
+    }
+        
+    
+    return count;
+}
+int main() {
+	int arr[]={1,9,2,8,6,4,3};
+	int k=100;
+	int s=sizeof(arr)/sizeof(arr[0]);
+	cout<<countsubarray(arr,s,k);
+	return 0;
+}
