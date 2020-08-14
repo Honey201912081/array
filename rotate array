@@ -1,0 +1,43 @@
+/*
+Input:
+2
+5 2
+1 2 3 4 5 
+10 3
+2 4 6 8 10 12 14 16 18 20
+
+Output:
+3 4 5 1 2
+8 10 12 14 16 18 20 2 4 6
+
+*/
+
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n1,c;
+	    cin>>n1;
+	    cin>>c;
+	    vector<int> v;
+	    vector<int> rv;
+	    for(int i=0;i<n1;i++)
+	    {
+	        int x;
+	        cin>>x;
+	       v.push_back(x);
+	    }
+	    rotate(v.begin(),v.begin()+c,v.begin()+(n1));
+	    for(int i=0;i<n1;i++)
+	        cout<<v[i]<<" ";
+	    cout<<endl;
+	}
+	return 0;
+}
