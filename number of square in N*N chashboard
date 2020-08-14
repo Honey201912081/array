@@ -1,0 +1,21 @@
+/*
+  n=4 than square=30
+  n=2 than  square=5
+ */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    long long int sq=(n*(n+1)*((2*n)+1))/6;
+	    cout<<sq<<endl;
+	}
+	return 0;
+}
