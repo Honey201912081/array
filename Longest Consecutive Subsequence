@@ -1,0 +1,41 @@
+/*
+
+Given an array A of integers. The task is to complete the function which returns an integer denoting the length of the longest sub-sequence such that elements in the sub-sequence are consecutive integers, the consecutive numbers can be in any order.
+
+Input:
+2
+7
+1 9 3 10 4 20 2
+11
+36 41 56 35 44 33 34 92 43 32 42
+Output:
+4
+5
+
+*/
+
+unordered_set<int> S; 
+    int ans = 0; 
+  
+    // Hash all the array elements 
+    for (int i = 0; i < n; i++) 
+        S.insert(arr[i]); 
+  
+    // check each possible sequence from 
+    // the start then update optimal length 
+    for (int i = 0; i < n; i++) { 
+        // if current element is the starting 
+        // element of a sequence 
+        if (S.find(arr[i] - 1) == S.end()) { 
+            // Then check for next elements 
+            // in the sequence 
+            int j = arr[i]; 
+            while (S.find(j) != S.end()) 
+                j++; 
+  
+            // update  optimal length if 
+            // this length is more 
+            ans = max(ans, j - arr[i]); 
+        } 
+    } 
+    return ans; 
