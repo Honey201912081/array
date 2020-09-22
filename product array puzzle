@@ -1,0 +1,43 @@
+/*
+Given an array A of size N, construct a Product Array P (of same size) such that P is equal to the product of all the elements of A except A[i].
+
+Example:
+Input:
+2
+5
+10 3 5 6 2
+2
+12 20
+Output:
+180 600 360 300 900
+20 12
+
+logic: make product variable which stores product of all elements. now whenever we traverse elemet just divide it by that current value.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int product=1;
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	        product=product*arr[i];
+	    }
+	    for(int i=0;i<n;i++)
+	    {
+	        cout<<product/arr[i]<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
